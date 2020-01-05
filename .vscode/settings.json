@@ -1,0 +1,90 @@
+{
+  // Default tab size of 2, for consistency with internal codebase.
+  "editor.tabSize": 2,
+  // Do not figure out tab size from opening a file.
+  "editor.detectIndentation": false,
+  // Add a line at 80 characters.
+  "editor.rulers": [
+    80
+  ],
+  "editor.minimap.maxColumn": 80,
+  // Don't automatically add closing brackets. It gets in the way.
+  "editor.autoClosingBrackets": "never",
+  "editor.formatOnSave": false,
+
+  // Forces LF instead of "auto" which uses CRLF on Windows.
+  "files.eol": "\n",
+  // Trim tailing whitespace on save.
+  "files.trimTrailingWhitespace": true,
+  // Insert trimmed final new line.
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  "files.associations": {
+    "*.grd": "xml",
+    "*.gni": "gn",
+    "*.gn": "gn",
+  },
+
+  "files.exclude": {
+    // Ignore build output folders except for the gen
+    "out/[^D]*/": true,
+    "out/Debug_x64/[^g]*": true,
+    "out/Debug_x64/g[^e]*": true,
+  },
+
+  "files.watcherExclude": {
+    "**/out*/**": true,
+    "**/third_party/**": true
+  },
+
+  // Do not open files in 'preview' mode. Opening a new file in can
+  // replace an existing one in preview mode, which can be confusing.
+  "workbench.editor.enablePreview": false,
+  // Same for files opened from quick open (Ctrl+P).
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+
+  "vim.useCtrlKeys": false,
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-c>": false,
+    "<C-d>": false,
+    "<C-f>": false,
+    "<C-h>": false,
+    "<C-p>": false,
+    "<C-s>": false,
+    "<C-t>": false,
+    "<C-v>": false,
+    "<C-w>": false,
+    "<C-x>": false,
+    "<C-z>": false,
+  },
+
+  "clang-format.executable": "${workspaceFolder}/buildtools/win/clang-format.exe",
+
+  "C_Cpp.autoAddFileAssociations": false,
+  "C_Cpp.clang_format_fallbackStyle": "Chromium",
+  "C_Cpp.clang_format_sortIncludes": true,
+  "C_Cpp.intelliSenseCacheSize": 8192,
+  "C_Cpp.workspaceSymbols": "All",
+
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+
+  // Chromium IDE
+  "chromiumIde.currentBuildConfiguration": "d64",
+  "chromiumIde.testBinaries": [
+    "browser_tests",
+    "components_unittests",
+    "unit_tests",
+    "xr_browser_tests"
+  ],
+  "breadcrumbs.enabled": true,
+  "search.exclude": {
+    "out/[^d]*/": true,
+    "out/d64/[^g]*": true,
+    "out/d64/g[^e]*": true,
+    "out_*/**": true
+  }
+}

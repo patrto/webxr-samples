@@ -75,7 +75,7 @@ function isPowerOfTwo(n) {
 }
 
 // Creates a WebGL context and initializes it with some common default state.
-export function createWebGLContext(glAttribs) {
+export function createWebGLContext(glAttribs, contextLostHandler, contextRestoredHandler) {
   glAttribs = glAttribs || {alpha: false};
 
   let webglCanvas = document.createElement('canvas');
@@ -94,6 +94,9 @@ export function createWebGLContext(glAttribs) {
     console.error('This browser does not support ' + webglType + '.');
     return null;
   }
+
+  webglCanvas.addEventListener("webglcontextlost", contextLostHandler);
+  webglCanvas.addEventListener("webglcontextrestored", contextRestoredHandler);
 
   return context;
 }

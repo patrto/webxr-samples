@@ -271,13 +271,24 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         }
       }
 
+      function handleContextLost(e) {
+        console.log("handleContextLost");
+        e.preventDefault();
+      }
+
+      function handleContextRestored(e) {
+        console.log("handleContextRestored");
+        renderer = new Renderer(gl);
+        scene.setRenderer(renderer);
+      }
+
       function initGL() {
         if (gl)
           return;
 
         gl = createWebGLContext({
           xrCompatible: true
-        });
+        }, handleContextLost, handleContextRestored);
         if (appSettings.magicWindow) {
           document.body.appendChild(gl.canvas);
 
